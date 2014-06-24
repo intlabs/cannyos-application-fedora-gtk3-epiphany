@@ -48,10 +48,15 @@ echo ""
 #Startup script begins:
 
 #Start Broadway server
-broadwayd --port 80 &
+broadwayd --port 80 :0 &
 
 #Set GDK backend
 export GDK_BACKEND=broadway
+
+export BROADWAY_DISPLAY=:0
+
+# Startup dbus
+dbus-daemon --system
 
 # Launch a GTK3 broadway compatible app
 epiphany &
