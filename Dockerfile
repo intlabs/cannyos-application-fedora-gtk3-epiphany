@@ -37,15 +37,15 @@ WORKDIR /
 WORKDIR /tmp
 RUN yum install -y yum-utils rpmdevtools
 RUN yum-builddep -y epiphany
-RUN rpmdev-setuptree
-cd ~/rpmbuild/SRPMS/
-yumdownloader --source epiphany
-rpm -ivh epiphany*
-cd ~/rpmbuild
-tar xf ~/rpmbuild/SOURCES/epiphany-3.12.1.tar.xz
-cp -r ~/rpmbuild/SOURCES/epiphany-3.12.1 ~/rpmbuild/SOURCES/epiphany-3.12.1p
-rpmbuild -bb SPECS/epiphany.spec
-yum localinstall -y --nogpgcheck ~/rpmbuild/RPMS/x86_64/epiphany-3.12.1-2.fc21.x86_64.rpm
+RUN rpmdev-setuptree && \
+	cd ~/rpmbuild/SRPMS/ && \
+	yumdownloader --source epiphany && \
+	rpm -ivh epiphany* && \
+	cd ~/rpmbuild && \
+	tar xf ~/rpmbuild/SOURCES/epiphany-3.12.1.tar.xz && \
+	cp -r ~/rpmbuild/SOURCES/epiphany-3.12.1 ~/rpmbuild/SOURCES/epiphany-3.12.1p && \
+	rpmbuild -bb SPECS/epiphany.spec && \
+	yum localinstall -y --nogpgcheck ~/rpmbuild/RPMS/x86_64/epiphany-3.12.1-2.fc21.x86_64.rpm
 
 
 #****************************************************
