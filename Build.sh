@@ -56,7 +56,7 @@ sudo rm -r -f "/CannyOS/build/cannyos-application-fedora-gtk3-epiphany/*"
 sudo docker stop cannyos-application-fedora-gtk3-epiphany
 
 # Launch built base container image
-sudo docker run -i -t --rm \
+sudo docker run -i -t -d \
  --privileged=true --lxc-conf="native.cgroup.devices.allow = c 10:229 rwm" \
  --volume "/CannyOS/build/cannyos-application-fedora-gtk3-epiphany":"/CannyOS/Host" \
  --name "cannyos-application-fedora-gtk3-epiphany" \

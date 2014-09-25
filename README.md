@@ -29,4 +29,4 @@ This repository contains the *Dockerfile* and *associated files* for setting up 
 
 * this will run and drop you into a session with privileges to run FUSE:
 
-`docker run -i -t --rm --privileged=true --lxc-conf="native.cgroup.devices.allow = c 10:229 rwm" --volume "/CannyOS/build/cannyos-application-fedora-gtk3-epiphany":"/CannyOS/Host" --name "cannyos-application-fedora-gtk3-epiphany" --user "root" -p 80 intlabs/cannyos-application-fedora-gtk3-epiphany`
+`docker run -i -t -d --privileged=true --lxc-conf="native.cgroup.devices.allow = c 10:229 rwm" --volume "/CannyOS/build/cannyos-application-fedora-gtk3-epiphany":"/CannyOS/Host" --name "cannyos-application-fedora-gtk3-epiphany" --user "root" -p 80 intlabs/cannyos-application-fedora-gtk3-epiphany`
